@@ -26,6 +26,17 @@ class DonateService {
             throw { error };
         }
     }
+
+    async getSingleDonation(id) {
+        try {
+            const response = await this.donateRepository.getById(id);
+            return response;
+        } catch (error) {
+            console.log("Something went wrong in service level");
+            console.log(error);
+            throw { error };
+        }
+    }
 }
 
 module.exports = DonateService;

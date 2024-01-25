@@ -58,7 +58,29 @@ const getAll = async (req, res) => {
         });
     }
 };
+
+const get = async (req, res) => {
+    try {
+        const response = await donateService.getSingleDonation(req.query.id);
+
+        return res.status(201).json({
+            data: response,
+            success: true,
+            message: "Successfully fethced",
+            err: {}
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message: "Failed to fetch",
+            err: error
+        });
+    }
+};
 module.exports = {
     donate,
-    getAll
+    getAll,
+    get
 };

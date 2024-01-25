@@ -21,6 +21,16 @@ class DonateRepository {
             throw { error };
         }
     }
+
+    async getById(id) {
+        try {
+            const response = await Donate.findByPk(id);
+            return response;
+        } catch (error) {
+            console.log("Something went wrong in repository level");
+            throw { error };
+        }
+    }
 }
 
 module.exports = DonateRepository;
