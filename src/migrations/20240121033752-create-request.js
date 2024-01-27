@@ -3,23 +3,20 @@
 module.exports = {
     async up(queryInterface, Sequelize) {
         await queryInterface.createTable("requests", {
-            id: {
-                allowNull: false,
-                autoIncrement: true,
-                primaryKey: true,
-                type: Sequelize.INTEGER
-            },
-            donate_id: {
+            food_id: {
                 type: Sequelize.INTEGER,
-                allowNull: false
+                allowNull: false,
+                primaryKey: true
             },
             donor_id: {
                 type: Sequelize.INTEGER,
-                allowNull: false
+                allowNull: false,
+                primaryKey: true
             },
             acceptor_id: {
                 type: Sequelize.INTEGER,
-                allowNull: false
+                allowNull: false,
+                primaryKey: true
             },
             createdAt: {
                 allowNull: false,

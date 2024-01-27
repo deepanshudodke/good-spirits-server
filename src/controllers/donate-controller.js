@@ -40,7 +40,7 @@ const donate = async (req, res) => {
 
 const getAll = async (req, res) => {
     try {
-        const response = await donateService.getAllDonations();
+        const response = await donateService.getAllDonations(req.query.id);
 
         return res.status(201).json({
             data: response,

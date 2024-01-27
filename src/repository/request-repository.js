@@ -12,6 +12,18 @@ class RequestRepository {
             throw { error };
         }
     }
+
+    async getAll(id) {
+        try {
+            const response = await request.findAll({
+                where: {
+                    donor_id: id
+                }
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
 
 module.exports = RequestRepository;

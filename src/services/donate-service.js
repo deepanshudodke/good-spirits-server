@@ -15,9 +15,9 @@ class DonateService {
         }
     }
 
-    async getAllDonations() {
+    async getAllDonations(id) {
         try {
-            const response = await this.donateRepository.get();
+            const response = await this.donateRepository.get(id);
 
             return response;
         } catch (error) {

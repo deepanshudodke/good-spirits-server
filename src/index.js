@@ -32,6 +32,7 @@ server.post("/donate", upload.array("photo", 10), DonateController.donate);
 server.get("/donates", DonateController.getAll);
 server.post("/request", RequestController.create);
 server.get("/donate", DonateController.get);
+server.get("/requests", RequestController.getAll);
 
 server.listen(1234, async () => {
     console.log("Server has started");

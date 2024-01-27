@@ -1,5 +1,5 @@
 const { Donate } = require("../models/index");
-
+const sequelize = require("sequelize");
 class DonateRepository {
     async create(data) {
         try {
@@ -11,9 +11,15 @@ class DonateRepository {
         }
     }
 
-    async get() {
+    async get(id) {
         try {
-            const response = await Donate.findAll();
+            const response = await Donate.findAll({
+                where: {
+                    userId: {
+                        [sequelize.Op.not]: id
+                    }
+                }
+            });
 
             return response;
         } catch (error) {

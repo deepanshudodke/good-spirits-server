@@ -13,17 +13,20 @@ module.exports = (sequelize, DataTypes) => {
     }
     request.init(
         {
-            donate_id: {
-                type: DataTypes.INTEGER,
-                allowNull: false
-            },
             donor_id: {
                 type: DataTypes.INTEGER,
-                allowNull: false
+                allowNull: false,
+                primaryKey: true
             },
             acceptor_id: {
                 type: DataTypes.INTEGER,
-                allowNull: false
+                allowNull: false,
+                primaryKey: true
+            },
+            food_id: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+                primaryKey: true
             }
         },
         {

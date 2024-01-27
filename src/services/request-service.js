@@ -14,6 +14,16 @@ class RequestService {
             throw { error };
         }
     }
+
+    async getAll(id) {
+        try {
+            const response = this.requestRepository.getAll(id);
+            return response;
+        } catch (error) {
+            console.log("Something went wrong in Request Service");
+            throw { error };
+        }
+    }
 }
 
 module.exports = RequestService;
