@@ -17,7 +17,8 @@ class RequestService {
 
     async getAll(id) {
         try {
-            const response = this.requestRepository.getAll(id);
+            const response = await this.requestRepository.getAll(id);
+            // c/onsole.log(response);
             return response;
         } catch (error) {
             console.log("Something went wrong in Request Service");

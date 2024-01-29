@@ -23,10 +23,11 @@ const create = async (req, res) => {
 const getAll = async (req, res) => {
     try {
         const response = await requestService.getAll(req.query.id);
+        // console.log(response);
         return res.status(201).json({
             data: response,
             success: true,
-            message: "Successfully request to the user",
+            message: "Successfully feteched all request",
             err: {}
         });
     } catch (error) {

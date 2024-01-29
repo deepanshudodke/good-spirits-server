@@ -20,6 +20,7 @@ class RequestRepository {
                     donor_id: id
                 }
             });
+            return response;
         } catch (error) {
             console.log(error);
         }
