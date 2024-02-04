@@ -37,6 +37,17 @@ class DonateService {
             throw { error };
         }
     }
+
+    async delete(id) {
+        try {
+            const response = await this.donateRepository.deleteById(id);
+            return response;
+        } catch (error) {
+            console.log("Something went wrong in service level");
+            console.log(error);
+            throw { error };
+        }
+    }
 }
 
 module.exports = DonateService;

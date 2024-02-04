@@ -6,7 +6,8 @@ module.exports = {
             food_id: {
                 type: Sequelize.INTEGER,
                 allowNull: false,
-                primaryKey: true
+                primaryKey: true,
+                references: { model: "donates", key: "id" }
             },
             donor_id: {
                 type: Sequelize.INTEGER,
@@ -16,7 +17,8 @@ module.exports = {
             acceptor_id: {
                 type: Sequelize.INTEGER,
                 allowNull: false,
-                primaryKey: true
+                primaryKey: true,
+                references: { model: "users", key: "id" }
             },
             createdAt: {
                 allowNull: false,

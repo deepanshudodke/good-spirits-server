@@ -9,6 +9,13 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
+            request.belongsTo(models.User, {
+                foreignKey: "donor_id"
+            });
+
+            request.belongsTo(models.Donate, {
+                foreignKey: "food_id"
+            });
         }
     }
     request.init(

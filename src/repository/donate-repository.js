@@ -1,4 +1,4 @@
-const { Donate } = require("../models/index");
+const { Donate, request } = require("../models/index");
 const sequelize = require("sequelize");
 class DonateRepository {
     async create(data) {
@@ -34,6 +34,27 @@ class DonateRepository {
             return response;
         } catch (error) {
             console.log("Something went wrong in repository level");
+            throw { error };
+        }
+    }
+
+    async deleteById(id) {
+        try {
+            await request.destroy({
+                where: {
+                    food_id: id
+                }
+            });
+
+            await Donate.destroy({
+                where: {
+                    id: id
+                }
+            });
+
+            return true;
+        } catch (error) {
+            console.log("Something went wrong in deleting level");
             throw { error };
         }
     }

@@ -66,8 +66,29 @@ const isAuthenticated = async (req, res) => {
     }
 };
 
+const getById = async (req, res) => {
+    try {
+        const response = await userService.getById(req.query.id);
+        return res.status(200).json({
+            data: response,
+            message: "Successfully Fetched in the user",
+            success: true,
+            err: {}
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            data: {},
+            message: "Something went wrong",
+            success: false,
+            err: error
+        });
+    }
+};
+
 module.exports = {
     create,
     signIn,
-    isAuthenticated
+    isAuthenticated,
+    getById
 };

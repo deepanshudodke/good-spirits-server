@@ -10,6 +10,9 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
+            User.hasMany(models.request, {
+                foreignKey: "acceptor_id"
+            });
         }
     }
 

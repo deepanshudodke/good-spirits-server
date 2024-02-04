@@ -33,7 +33,8 @@ server.get("/donates", DonateController.getAll);
 server.post("/request", RequestController.create);
 server.get("/donate", DonateController.get);
 server.get("/requests", RequestController.getAll);
-
+server.get("/acceptor", UserController.getById);
+server.delete("/donate", DonateController.remove);
 server.listen(1234, async () => {
     console.log("Server has started");
 });

@@ -1,4 +1,4 @@
-const { request } = require("../models/index");
+const { request, User, Donate } = require("../models/index");
 
 class RequestRepository {
     async create(data) {
@@ -16,9 +16,17 @@ class RequestRepository {
     async getAll(id) {
         try {
             const response = await request.findAll({
-                where: {
-                    donor_id: id
-                }
+                include: [
+                    {
+                        model: User,
+                        where: {
+                            id: id
+                        }
+                    },
+                    {
+                        model: Donate
+                    }
+                ]
             });
             return response;
         } catch (error) {

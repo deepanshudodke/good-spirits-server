@@ -92,8 +92,14 @@ class UserService {
         }
     }
 
-    async donate(data) {
-        return "true";
+    async getById(id) {
+        try {
+            const response = await this.userRepository.getById(id);
+            return response;
+        } catch (error) {
+            console.log("Something went wrong in token validation");
+            throw { error };
+        }
     }
 }
 
